@@ -1,0 +1,56 @@
+defaults:
+  - _self_
+  - launcher: local
+  - data: pusht
+  - model: fjepa
+
+output_model_name: flow-jepa
+subdir: ${hydra:job.id}
+
+num_workers: 6
+train_split: 0.9
+seed: 3072
+img_size: 224
+embed_dim: 192
+history_size: 1
+num_flow_steps: 8
+
+flow_matching:
+  source: standard_noise # standard_noise | noisy_current
+  source_noise_scale: 1.0
+
+pretrained_visual_encoder:
+  enabled: false
+  checkpoint: null
+  load_projector: true
+  strict: true
+  # Freezes parameters and keeps BatchNorm/dropout in evaluation mode.
+  freeze: true
+
+trainer:
+  max_epochs: 20
+  devices: auto
+  accelerator: gpu
+  precision: bf16
+  gradient_clip_val: 1.0
+
+loader:
+  batch_size: 128
+  num_workers: ${num_workers}
+  persistent_workers: True
+  prefetch_factor: 3
+  pin_memory: True
+
+optimizer:
+  type: AdamW
+  lr: 5e-5
+  weight_decay: 1e-3
+
+num_preds: 5
+
+loss:
+  sigreg:
+    weight: 0.09
+    kwargs:
+      knots: 17
+      num_proj: 1024
