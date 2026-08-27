@@ -8,37 +8,22 @@ improves planning performance under clean conditions and achieves substantially
 stronger performance under noisy conditions.
 
 The repository contains the Flow-JEPA model, training entry point, and clean or
-Gaussian-noise evaluation for PushT, TwoRoom, Cube, and Reacher.
+Gaussian-noise evaluation for Two-Room, Reacher, Push-T, and OGBench-Cube.
 
 <table>
   <tbody>
     <tr>
-      <th scope="row">Cube</th>
+      <th scope="row">Two-Room</th>
       <td align="center" valign="top">
-        <a href="cube/dataset_cube.mp4"><img src="assets/rollouts/cube/dataset_cube.gif" width="128" alt="Cube dataset demonstration"></a><br>
+        <a href="tworoom/dataset_tworoom.mp4"><img src="assets/rollouts/tworoom/dataset_tworoom.gif" width="128" alt="TwoRoom dataset demonstration"></a><br>
         <strong>Dataset</strong>
       </td>
       <td align="center" valign="top">
-        <a href="cube/base_agent_cube.mp4"><img src="assets/rollouts/cube/base_agent_cube.gif" width="128" alt="LeWM clean Cube rollout"></a><a href="cube/base_noise_agent_cube.mp4"><img src="assets/rollouts/cube/base_noise_agent_cube.gif" width="128" alt="LeWM noisy Cube rollout"></a><br>
+        <a href="tworoom/base_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/base_agent_tworoom.gif" width="128" alt="LeWM clean TwoRoom rollout"></a><a href="tworoom/base_noise_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/base_noise_agent_tworoom.gif" width="128" alt="LeWM noisy TwoRoom rollout"></a><br>
         <strong>LeWM</strong>
       </td>
       <td align="center" valign="top">
-        <a href="cube/flow_agent_cube.mp4"><img src="assets/rollouts/cube/flow_agent_cube.gif" width="128" alt="Flow-JEPA clean Cube rollout"></a><a href="cube/flow_noise_agent_cube.mp4"><img src="assets/rollouts/cube/flow_noise_agent_cube.gif" width="128" alt="Flow-JEPA noisy Cube rollout"></a><br>
-        <strong>Ours</strong>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">PushT</th>
-      <td align="center" valign="top">
-        <a href="pusht/pusht_dataset.mp4"><img src="assets/rollouts/pusht/pusht_dataset.gif" width="128" alt="PushT dataset demonstration"></a><br>
-        <strong>Dataset</strong>
-      </td>
-      <td align="center" valign="top">
-        <a href="pusht/pusht_agent_base_clean.mp4"><img src="assets/rollouts/pusht/pusht_agent_base_clean.gif" width="128" alt="LeWM clean PushT rollout"></a><a href="pusht/pusht_agent_base_noise.mp4"><img src="assets/rollouts/pusht/pusht_agent_base_noise.gif" width="128" alt="LeWM noisy PushT rollout"></a><br>
-        <strong>LeWM</strong>
-      </td>
-      <td align="center" valign="top">
-        <a href="pusht/pusht_agent_flow_clean.mp4"><img src="assets/rollouts/pusht/pusht_agent_flow_clean.gif" width="128" alt="Flow-JEPA clean PushT rollout"></a><a href="pusht/pusht_agent_flow_noise.mp4"><img src="assets/rollouts/pusht/pusht_agent_flow_noise.gif" width="128" alt="Flow-JEPA noisy PushT rollout"></a><br>
+        <a href="tworoom/flow_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/flow_agent_tworoom.gif" width="128" alt="Flow-JEPA clean TwoRoom rollout"></a><a href="tworoom/flow_noise_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/flow_noise_agent_tworoom.gif" width="128" alt="Flow-JEPA noisy TwoRoom rollout"></a><br>
         <strong>Ours</strong>
       </td>
     </tr>
@@ -58,17 +43,32 @@ Gaussian-noise evaluation for PushT, TwoRoom, Cube, and Reacher.
       </td>
     </tr>
     <tr>
-      <th scope="row">TwoRoom</th>
+      <th scope="row">Push-T</th>
       <td align="center" valign="top">
-        <a href="tworoom/dataset_tworoom.mp4"><img src="assets/rollouts/tworoom/dataset_tworoom.gif" width="128" alt="TwoRoom dataset demonstration"></a><br>
+        <a href="pusht/pusht_dataset.mp4"><img src="assets/rollouts/pusht/pusht_dataset.gif" width="128" alt="PushT dataset demonstration"></a><br>
         <strong>Dataset</strong>
       </td>
       <td align="center" valign="top">
-        <a href="tworoom/base_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/base_agent_tworoom.gif" width="128" alt="LeWM clean TwoRoom rollout"></a><a href="tworoom/base_noise_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/base_noise_agent_tworoom.gif" width="128" alt="LeWM noisy TwoRoom rollout"></a><br>
+        <a href="pusht/pusht_agent_base_clean.mp4"><img src="assets/rollouts/pusht/pusht_agent_base_clean.gif" width="128" alt="LeWM clean PushT rollout"></a><a href="pusht/pusht_agent_base_noise.mp4"><img src="assets/rollouts/pusht/pusht_agent_base_noise.gif" width="128" alt="LeWM noisy PushT rollout"></a><br>
         <strong>LeWM</strong>
       </td>
       <td align="center" valign="top">
-        <a href="tworoom/flow_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/flow_agent_tworoom.gif" width="128" alt="Flow-JEPA clean TwoRoom rollout"></a><a href="tworoom/flow_noise_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/flow_noise_agent_tworoom.gif" width="128" alt="Flow-JEPA noisy TwoRoom rollout"></a><br>
+        <a href="pusht/pusht_agent_flow_clean.mp4"><img src="assets/rollouts/pusht/pusht_agent_flow_clean.gif" width="128" alt="Flow-JEPA clean PushT rollout"></a><a href="pusht/pusht_agent_flow_noise.mp4"><img src="assets/rollouts/pusht/pusht_agent_flow_noise.gif" width="128" alt="Flow-JEPA noisy PushT rollout"></a><br>
+        <strong>Ours</strong>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">OGBench-Cube</th>
+      <td align="center" valign="top">
+        <a href="cube/dataset_cube.mp4"><img src="assets/rollouts/cube/dataset_cube.gif" width="128" alt="Cube dataset demonstration"></a><br>
+        <strong>Dataset</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="cube/base_agent_cube.mp4"><img src="assets/rollouts/cube/base_agent_cube.gif" width="128" alt="LeWM clean Cube rollout"></a><a href="cube/base_noise_agent_cube.mp4"><img src="assets/rollouts/cube/base_noise_agent_cube.gif" width="128" alt="LeWM noisy Cube rollout"></a><br>
+        <strong>LeWM</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="cube/flow_agent_cube.mp4"><img src="assets/rollouts/cube/flow_agent_cube.gif" width="128" alt="Flow-JEPA clean Cube rollout"></a><a href="cube/flow_noise_agent_cube.mp4"><img src="assets/rollouts/cube/flow_noise_agent_cube.gif" width="128" alt="Flow-JEPA noisy Cube rollout"></a><br>
         <strong>Ours</strong>
       </td>
     </tr>
@@ -110,10 +110,10 @@ Place the HDF5 datasets under `$STABLEWM_HOME/datasets/`:
 
 | Task | Training configuration | Dataset file |
 |---|---|---|
-| PushT | `data=pusht` | `pusht_expert_train.h5` |
-| TwoRoom | `data=tworoom` | `tworoom.h5` |
-| Cube | `data=ogb` | `cube_single_expert.h5` |
+| Two-Room | `data=tworoom` | `tworoom.h5` |
 | Reacher | `data=dmc` | `reacher.h5` |
+| Push-T | `data=pusht` | `pusht_expert_train.h5` |
+| OGBench-Cube | `data=ogb` | `cube_single_expert.h5` |
 
 ## Training
 
@@ -173,10 +173,10 @@ Use the matching evaluation configuration for each task:
 
 | Task | Evaluation option |
 |---|---|
-| PushT | `--config-name=pusht` |
-| TwoRoom | `--config-name=tworoom` |
-| Cube | `--config-name=cube` |
+| Two-Room | `--config-name=tworoom` |
 | Reacher | `--config-name=reacher` |
+| Push-T | `--config-name=pusht` |
+| OGBench-Cube | `--config-name=cube` |
 
 ### Gaussian visual perturbation
 
