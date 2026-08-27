@@ -3,18 +3,83 @@
 Flow-JEPA is an action-conditioned world model that predicts future visual
 representations with flow matching. It learns directly from image and action
 sequences, predicts an entire latent trajectory jointly, and supplies a latent
-goal cost for model-predictive control (MPC).
+goal cost for model-predictive control (MPC). Compared with LeWM, Flow-JEPA
+improves planning performance under clean conditions and achieves substantially
+stronger performance under noisy conditions.
 
 The repository contains the Flow-JEPA model, training entry point, and clean or
 Gaussian-noise evaluation for PushT, TwoRoom, Cube, and Reacher.
 
+<table>
+  <tbody>
+    <tr>
+      <th scope="row">Cube</th>
+      <td align="center" valign="top">
+        <a href="cube/dataset_cube.mp4"><img src="assets/rollouts/cube/dataset_cube.gif" width="128" alt="Cube dataset demonstration"></a><br>
+        <strong>Dataset</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="cube/base_agent_cube.mp4"><img src="assets/rollouts/cube/base_agent_cube.gif" width="128" alt="LeWM clean Cube rollout"></a><a href="cube/base_noise_agent_cube.mp4"><img src="assets/rollouts/cube/base_noise_agent_cube.gif" width="128" alt="LeWM noisy Cube rollout"></a><br>
+        <strong>LeWM</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="cube/flow_agent_cube.mp4"><img src="assets/rollouts/cube/flow_agent_cube.gif" width="128" alt="Flow-JEPA clean Cube rollout"></a><a href="cube/flow_noise_agent_cube.mp4"><img src="assets/rollouts/cube/flow_noise_agent_cube.gif" width="128" alt="Flow-JEPA noisy Cube rollout"></a><br>
+        <strong>Ours</strong>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">PushT</th>
+      <td align="center" valign="top">
+        <a href="pusht/pusht_dataset.mp4"><img src="assets/rollouts/pusht/pusht_dataset.gif" width="128" alt="PushT dataset demonstration"></a><br>
+        <strong>Dataset</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="pusht/pusht_agent_base_clean.mp4"><img src="assets/rollouts/pusht/pusht_agent_base_clean.gif" width="128" alt="LeWM clean PushT rollout"></a><a href="pusht/pusht_agent_base_noise.mp4"><img src="assets/rollouts/pusht/pusht_agent_base_noise.gif" width="128" alt="LeWM noisy PushT rollout"></a><br>
+        <strong>LeWM</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="pusht/pusht_agent_flow_clean.mp4"><img src="assets/rollouts/pusht/pusht_agent_flow_clean.gif" width="128" alt="Flow-JEPA clean PushT rollout"></a><a href="pusht/pusht_agent_flow_noise.mp4"><img src="assets/rollouts/pusht/pusht_agent_flow_noise.gif" width="128" alt="Flow-JEPA noisy PushT rollout"></a><br>
+        <strong>Ours</strong>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Reacher</th>
+      <td align="center" valign="top">
+        <a href="reacher/reacher_dataset.mp4"><img src="assets/rollouts/reacher/reacher_dataset.gif" width="128" alt="Reacher dataset demonstration"></a><br>
+        <strong>Dataset</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="reacher/reacher_agent_base_clean.mp4"><img src="assets/rollouts/reacher/reacher_agent_base_clean.gif" width="128" alt="LeWM clean Reacher rollout"></a><a href="reacher/reacher_agent_base_noise.mp4"><img src="assets/rollouts/reacher/reacher_agent_base_noise.gif" width="128" alt="LeWM noisy Reacher rollout"></a><br>
+        <strong>LeWM</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="reacher/reacher_agent_flow_clean.mp4"><img src="assets/rollouts/reacher/reacher_agent_flow_clean.gif" width="128" alt="Flow-JEPA clean Reacher rollout"></a><a href="reacher/reacher_agent_flow_noise.mp4"><img src="assets/rollouts/reacher/reacher_agent_flow_noise.gif" width="128" alt="Flow-JEPA noisy Reacher rollout"></a><br>
+        <strong>Ours</strong>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">TwoRoom</th>
+      <td align="center" valign="top">
+        <a href="tworoom/dataset_tworoom.mp4"><img src="assets/rollouts/tworoom/dataset_tworoom.gif" width="128" alt="TwoRoom dataset demonstration"></a><br>
+        <strong>Dataset</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="tworoom/base_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/base_agent_tworoom.gif" width="128" alt="LeWM clean TwoRoom rollout"></a><a href="tworoom/base_noise_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/base_noise_agent_tworoom.gif" width="128" alt="LeWM noisy TwoRoom rollout"></a><br>
+        <strong>LeWM</strong>
+      </td>
+      <td align="center" valign="top">
+        <a href="tworoom/flow_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/flow_agent_tworoom.gif" width="128" alt="Flow-JEPA clean TwoRoom rollout"></a><a href="tworoom/flow_noise_agent_tworoom.mp4"><img src="assets/rollouts/tworoom/flow_noise_agent_tworoom.gif" width="128" alt="Flow-JEPA noisy TwoRoom rollout"></a><br>
+        <strong>Ours</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ## Installation
 
-Python 3.10 is recommended. The code uses
-[stable-worldmodel](https://github.com/galilai-group/stable-worldmodel) for
-environments, planning, checkpoint loading, and evaluation, and
-[stable-pretraining](https://github.com/galilai-group/stable-pretraining) for
-training utilities.
+Flow-JEPA uses the same software environment and datasets as
+[LeWM](https://github.com/lucas-maes/le-wm). Create a Python environment and
+install the training, environment, and HDF5 dependencies with:
 
 ```bash
 uv venv --python=3.10
@@ -22,12 +87,9 @@ source .venv/bin/activate
 uv pip install "stable-worldmodel[train,env,format]"
 ```
 
-Run all commands below from the repository root so checkpoint configurations
-can resolve the local `jepa` and `module` packages.
-
 ## Data and storage
 
-Flow-JEPA uses the same HDF5 datasets as the original repository. Download the
+Flow-JEPA uses the same HDF5 datasets as LeWM. Download the
 data from the
 [Hugging Face dataset collection](https://huggingface.co/collections/quentinll/lewm)
 and extract each archive with:
@@ -52,10 +114,6 @@ Place the HDF5 datasets under `$STABLEWM_HOME/datasets/`:
 | TwoRoom | `data=tworoom` | `tworoom.h5` |
 | Cube | `data=ogb` | `cube_single_expert.h5` |
 | Reacher | `data=dmc` | `reacher.h5` |
-
-The dataset must contain pixel observations and actions. Task-specific state or
-proprioceptive fields are used to restore evaluation environments and compute
-native success, but the model itself receives pixels and actions.
 
 ## Training
 
