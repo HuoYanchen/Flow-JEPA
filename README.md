@@ -1,6 +1,7 @@
 # Flow-JEPA
 
 [![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b.svg)](https://arxiv.org/abs/2608.29029)
+[![Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face-Models-yellow)](https://huggingface.co/HuoYanchen/Flow-JEPA)
 
 Flow-JEPA is an action-conditioned world model that predicts future visual
 representations with flow matching. It learns directly from image and action
